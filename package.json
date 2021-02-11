@@ -1,0 +1,45 @@
+{
+  "name": "api",
+  "version": "1.0.0",
+  "description": "API backend for DMP client",
+  "main": "app.js",
+  "repository": "https://github.com/linastech/DMP-API",
+  "author": "Linas Rakauskas",
+  "license": "MIT",
+  "scripts": {
+    "dev": "./app.js"
+  },
+  "_moduleAliases": {
+    "@logger": "./util/logger.js",
+    "@DB": "./database/index.js"
+  },
+  "nodemonConfig": {
+    "restartable": "rs",
+    "ignore": [
+      ".git",
+      "node_modules/**/node_modules"
+    ],
+    "delay": "1",
+    "verbose": true,
+    "events": {},
+    "watch": [
+      "./app.js",
+      "./models/**",
+      "./routes/**",
+      "./lib/**",
+      "./database/**",
+      "./.env"
+    ]
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "consign": "^0.1.6",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "module-alias": "^2.2.2",
+    "pg": "^8.5.1",
+    "sequelize": "^6.5.0",
+    "winston": "^3.3.3",
+    "winston-daily-rotate-file": "^4.5.0"
+  }
+}
